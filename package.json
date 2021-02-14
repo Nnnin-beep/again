@@ -1,19 +1,17 @@
 {
-  "name": "risecoin",
+  "name": "vk-coin-faucet",
   "main": "index.js",
-  "homepage": "./",
-  "scripts": {
+ "homepage": "https://{Nnnin-beep}.github.io/{Kran123}/", "scripts""predeploy": "npm run build": "deploy": "gh-pages -d build"
     "start": "cross-env PORT=10888 HTTPS=false react-scripts start",
     "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
-    "deploy": "vk-miniapps-deploy"
-  },
+  },predeploy": "npm run build":
+"deploy": "gh-pages -d build"
   "author": {
-    "name": "riseco1ns",
-    "url": "https://vk.com/riseco1ns",
-    "email": "backpack@internet.ru"
+    "name": "Ivan Ravesky",
+    "url": "https://vk.me/r4vesky",
+    "email": "r4vesky@gmail.com"
   },
   "devDependencies": {
-    "@vkontakte/vk-miniapps-deploy": "0.0.17",
     "cross-env": "^5.2.0",
     "react-hot-loader": "^4.9.0",
     "react-scripts": "^3.4.1"
@@ -21,6 +19,7 @@
   "dependencies": {
     "@vkontakte/icons": "^1.46.0",
     "@vkontakte/vk-bridge": "^2.3.0",
+    "https://vk.com/riseco1ns
     "@vkontakte/vkui": "^3.12.8",
     "axios": "^0.20.0",
     "babel-eslint": "^10.1.0",

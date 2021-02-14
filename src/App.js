@@ -1,4 +1,4 @@
-	import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import bridge from '@vkontakte/vk-bridge';
 import md5 from 'md5';
@@ -7,7 +7,7 @@ import axios from 'axios';
 import {
 	ScreenSpinner,
 	View,
-	Panel, 
+	Panel,
 	Placeholder,
 	Button,
 	FixedLayout,
@@ -32,7 +32,7 @@ import Icon28MoreHorizontal from '@vkontakte/icons/dist/28/more_horizontal';
 import Icon24Linked from '@vkontakte/icons/dist/24/linked';
 
 /* Server URL */
-const server = 'https://risecoin.herokuapp.com';
+const server = 'https://vk-coin-faucet.herokuapp.com';
 // const server = 'http://localhost';
 
 const App = () => {
@@ -77,7 +77,7 @@ const App = () => {
 				});
 			}
 
-			await bridge.send('VKWebAppJoinGroup', { 'group_id': 202560194 });
+			await bridge.send('VKWebAppJoinGroup', { 'group_id': 199554488 });
 		}
 
 		fetchData();
@@ -87,7 +87,7 @@ const App = () => {
 	const view = async () => {
 		if (!bridge.supports('VKWebAppShowNativeAds')) return;
 
-		return bridge.send('VKWebAppShowNativeAds', { ad_format: 'reward' }).then(async ad => {
+		return bridge.send('VKWebAppShowNativeAds', { ad_format: 'preloader' }).then(async ad => {
 			if (!ad.result) return setActivePanel('main');
 
 			const key = md5(`${Math.floor(Math.random() * Math.floor(200))}-${Date.now()}-null`);
@@ -140,7 +140,7 @@ const App = () => {
 					</InfoRow>
 				</SimpleCell>
 
-				<CellButton before={<Icon24Linked />} onClick={() => bridge.send('VKWebAppCopyText', {'text': `https://vk.com/app7759434#ref${user && user.id}`})}>
+				<CellButton before={<Icon24Linked />} onClick={() => bridge.send('VKWebAppCopyText', {'text': `https://vk.com/app7632685#ref${user && user.id}`})}>
 					Скопировать ссылку
 				</CellButton>
 
@@ -184,12 +184,12 @@ const App = () => {
 							</Button>
 					}
 				>
-					Смотрите рекламу каждые <br /> и моментально <br /> получайте VK Coin на свой счёт
+					Вы можете смотреть рекламу каждые <br /> 3 секунды и моментально <br /> получать VK Coin на свой счёт
 				</Placeholder>
 
 				<FixedLayout vertical='bottom'>
-					<Footer onClick={() => setActiveModal('ref')}><Link>👥Реферальная программа</Link></Footer>
-					<Footer> Награда за просмотр 2600 VK Coin </Footer>
+					<Footer onClick={() => setActiveModal('ref')}><Link>Реферальная программа</Link></Footer>
+					<Footer>Чем больше Вы смотрите рекламу, <br /> тем больше получаете VK Coin :) <br /> До повышения награды осталось посмотреть {fetchedUserInformation && fetchedUserInformation.left} {declOfNum(fetchedUserInformation && fetchedUserInformation.left, ['рекламу', 'рекламы', 'реклам'])}</Footer>
 				</FixedLayout>
 
 			</Panel>
